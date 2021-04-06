@@ -5,9 +5,9 @@
 to create a new bank account:
 
 ```javascript
-account = Bank.new()  // create an account with no funds
+account = new Bank()  // create an account with no funds
 
-account = Bank.new(800) // create an account with £800
+account = new Bank(800) // create an account with £800
 ```
 
 to make a deposit:
