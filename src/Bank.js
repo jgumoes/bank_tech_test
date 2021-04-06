@@ -6,6 +6,11 @@ class Bank {
   };
 }
 
+Bank.prototype.withdraw = function(amount, date = null, month = null, year = null) {
+  this.balance -= amount;
+  this._transaction(amount, "debit", this._createDate(date, month, year));
+}
+
 Bank.prototype.deposit = function(amount, date = null, month = null, year = null) {
   this.balance += amount;
   this._transaction(amount, "credit", this._createDate(date, month, year))
@@ -20,7 +25,6 @@ Bank.prototype._transaction = function(amount, type, date){
     "date": date
   };
   this.transactions.push(tObj);
-  console.log('transactions: ' + this.transactions[0]);
 };
 
 Bank.prototype._createDate = function(date, month, year){
