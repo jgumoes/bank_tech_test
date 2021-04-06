@@ -1,8 +1,10 @@
 describe('Bank', function() {
   var account;
-
+  var todaysDate; 
   beforeEach(function() {
     account = new Bank();
+    var date = new Date();
+    todaysDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
   });
 
   it("should have an empty balance by default", function() {
@@ -15,25 +17,21 @@ describe('Bank', function() {
 
   describe('.deposit', function() {
     beforeEach(function() {
-      spyOn(account, '_transaction');
-      account.deposit(300, 20, 4, 2069);
+      account.deposit(13.37, 20, 4, 2069);
     });
     
     it('should increase the balance by amount deposited', function() {
-      var account = new Bank();
-      account.deposit(20);
-      expect(account.balance).toEqual(20);
+      expect(account.balance).toEqual(13.37);
     });
       
-    it('should call the transaction creator with the appropriate date, type, and amount', function () {
-      expect(account._transaction).toHaveBeenCalledWith(300, "credit", "20/4/2069");
+    it('should call the transaction creator with the appropriate type and amount, and todays date', function () {
+      spyOn(account, '_transaction');
+      account.deposit(300);
+      expect(account._transaction).toHaveBeenCalledWith(300, "credit", todaysDate);
     });
     
     it('should put a transaction object in the transactions array', function() {
-      var account = new Bank();   // these must be here otherwise the test fails. I have no idea why.
-      account.deposit(300, 20, 4, 2069);
-      var depositTransaction = {"amount": 300, "type": "credit", "date": "20/4/2069"};
-
+      var depositTransaction = {"amount": 13.37, "type": "credit", "date": "20/4/2069"};
       var transObj = account.transactions[0];
 
       expect(transObj.amount).toEqual(depositTransaction.amount);
@@ -48,33 +46,26 @@ describe('Bank', function() {
     });
 
     it('should return todays date when passed nulls', function() {
-      var date = new Date();
-      var today = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-      expect(account._createDate(null, null, null)).toEqual(today);
+      expect(account._createDate(null, null, null)).toEqual(todaysDate);
     });
   });
 
   describe('.withdraw', function() {
     beforeEach(function() {
-      account = new Bank();
+      account.withdraw(300.99, 20, 4, 2069);
     });
     it('should decrease the balance by amount deposited', function() {
-      // var account = new Bank();
-      account.withdraw(30.99);
-      expect(account.balance).toEqual(-30.99)
+      expect(account.balance).toEqual(-300.99)
     });
 
-    it('should call the transaction creator with the appropriate date, type, and amount', function () {
+    it('should call the transaction creator with the appropriate type and amount, and todays date', function () {
       spyOn(account, '_transaction');
-      account.withdraw(300, 20, 4, 2069);
-      expect(account._transaction).toHaveBeenCalledWith(300, "debit", "20/4/2069");
+      account.withdraw(300);
+      expect(account._transaction).toHaveBeenCalledWith(300, "debit", todaysDate);
     });
 
     it('should put a transaction object in the transactions array', function() {
-      // var account = new Bank();   // these must be here otherwise the test fails. I have no idea why.
-      account.withdraw(300, 20, 4, 2069);
-      var withdrawTransaction = {"amount": 300, "type": "debit", "date": "20/4/2069"};
-
+      var withdrawTransaction = {"amount": 300.99, "type": "debit", "date": "20/4/2069"};
       var transObj = account.transactions[0];
 
       expect(transObj.amount).toEqual(withdrawTransaction.amount);
