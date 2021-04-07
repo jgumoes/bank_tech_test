@@ -1,0 +1,22 @@
+{
+  "name": "bank_tech_test",
+  "version": "1.0.0",
+  "description": "A simple bank account to be used with console",
+  "main": "Bank.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgumoes/bank_tech_test.git"
+  },
+  "author": "Jack Gumoes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgumoes/bank_tech_test/issues"
+  },
+  "homepage": "https://github.com/jgumoes/bank_tech_test#readme",
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  }
+}

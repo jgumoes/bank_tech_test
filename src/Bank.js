@@ -57,3 +57,5 @@ Bank.prototype._createDate = function(date, month, year){
   dateString += year || this.date.getFullYear();
   return dateString;
 };
+
+module.exports = Bank;
