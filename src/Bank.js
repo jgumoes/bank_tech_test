@@ -17,27 +17,18 @@ Bank.prototype.deposit = function(amount, date = null, month = null, year = null
 };
 
 Bank.prototype.statement = function(){
-  var fillAmount = {
-    // this function is officially declared as a Branch-Free Zone
-    "credit": function (amount) { return amount.toFixed(2) + " || \t"},
-    "debit": function (amount) { return "\t || " + amount.toFixed(2)}
-  }
-  var balanceChange = {
-    "credit": function (amount) { return amount},
-    "debit": function (amount) { return - amount}
+  var fillAmount = {  // this function is officially declared as a Branch-Free Zone
+    "credit": function (amount) { return amount.toFixed(2) + " || \t\t"},
+    "debit": function (amount) { return "\t\t || " + amount.toFixed(2)}
   }
   
-  var runningBalance = 0.0;
   var transArray = [];
   for(t of this.transactions){
-    var transAmount = t["amount"];
-    runningBalance += balanceChange[t["type"]](transAmount);  // todo: add runningBalance to transactions and remove need for this line
-    // todo: refactor this for loop into a map function
-    transArray.push(t.date + " || " + fillAmount[t["type"]](transAmount) + " || " + runningBalance.toFixed(2));
+    transArray.push(t.date + " || " + fillAmount[t.type](t.amount) + " || " + t.balance)
   }
   transArray.reverse();
 
-  var bankStatement = "date|| credit || debit || balance\n";
+  var bankStatement = "   date    || credit || debit || balance\n";
   return bankStatement + transArray.join("\n")
 }
 
@@ -47,7 +38,8 @@ Bank.prototype._transaction = function(amount, type, date){
   const tObj = {
     "amount": amount,
     "type": type,
-    "date": date
+    "date": date,
+    "balance": this.balance.toFixed(2)
   };
   this.transactions.push(tObj);
 };
