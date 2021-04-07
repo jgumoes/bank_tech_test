@@ -8,6 +8,7 @@ To run tests, `npm test`. To see the full code coverage report, `open coverage/B
 
 ## Usage
 
+To use the script, `open bank.html` and open the console.
 
 To create a new bank account:
 
