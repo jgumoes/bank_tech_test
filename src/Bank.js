@@ -47,15 +47,13 @@ Bank.prototype._transaction = function(amount, type, date){
 
 Bank.prototype._createDate = function(date, month, year){
   // converts the date to a string. If a parameter is null, it's replaced by today's parameter
-  var dateString = ""
-  dateString += date || this.date.getDate(); // if date is null, use today's date
-  dateString += "/";
   month = month || this.date.getMonth();
-  if (month < 10){ dateString += 0 }
-  dateString += month;
-  dateString += "/";
-  dateString += year || this.date.getFullYear();
-  return dateString;
+  if (month < 10){ month = "0" + month }
+  return [
+    date || this.date.getDate(),
+    month,
+    year || this.date.getFullYear()
+    ].join("/")
 };
 
 // module.exports.Bank = Bank;
