@@ -1,0 +1,30 @@
+{
+  "name": "bank_tech_test",
+  "version": "1.0.0",
+  "description": "A simple bank account to be used with console",
+  "main": "Bank.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgumoes/bank_tech_test.git"
+  },
+  "author": "Jack Gumoes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgumoes/bank_tech_test/issues"
+  },
+  "homepage": "https://github.com/jgumoes/bank_tech_test#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-compat": "^3.9.0",
+    "eslint-plugin-jasmine": "^4.1.2",
+    "jasmine-core": "^3.7.1",
+    "karma": "^6.3.2",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-eslint": "^2.2.0",
+    "karma-jasmine": "^4.0.1"
+  }
+}

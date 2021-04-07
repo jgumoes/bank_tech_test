@@ -1,35 +1,40 @@
 # Bank tech test
 
+The javascript code is src/Bank.js. The spec file is spec/BankSpec.js. Everything else is testing, linting, and coverage.
+
+## Testing
+
+To run tests, `npm test`. To see the full code coverage report, `open coverage/Bank.js.html`.
+
 ## Usage
 
-to run tests, `open SpecRunner.html`
+To use the script, `open bank.html` and open the console.
 
-
-to create a new bank account:
+To create a new bank account:
 
 ```javascript
 account = new Bank()  // create an account
 ```
 
-to make a deposit:
+To make a deposit:
 
 ```javascript
 account.deposit(30, 7, 1, 2020) // deposit £30 into the account on 7th January, 2020
 ```
 
-to make a withdrawal:
+To make a withdrawal:
 
 ```javascript
 account.withdraw(19.99, 20, 4, 2021) // withdraw £19.99 from the account on 20th April, 2021
 ```
 
-to see your transaction history:
+To see your transaction history:
 
 ```javascript
 account.statement() // prints your transactions as a table
 ```
 
-to see your current balance:
+To see your current balance:
 
 ```javascript
 account.balance
