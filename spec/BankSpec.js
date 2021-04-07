@@ -87,7 +87,7 @@ describe('Bank', function() {
       var statement = account.statement().split("\n");
       console.log(statement);
 
-      // i used regex in case i wanted to format the table better (which i did btw)
+      // i used regex in case i wanted to format the table better (which i did)
       expect(statement[0]).toEqual(jasmine.stringMatching(/date\s*\|\|\s*credit\s*\|\|\s*debit\s*\|\|\s*balance\s*/));
       expect(statement[1]).toEqual(jasmine.stringMatching(/14\/01\/2012\s*\|\|\s*\|\|\s*500.00\s*\|\|\s*2500.00\s*/));
       expect(statement[2]).toEqual(jasmine.stringMatching(/13\/01\/2012\s*\|\|\s*2000.00\s*\|\|\s*\|\|\s*3000.00\s*/));

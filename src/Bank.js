@@ -3,7 +3,7 @@ class Bank {
     this.balance = balance;
     this.transactions = [];
     this.date = new Date();
-  };
+  }
 }
 
 Bank.prototype.withdraw = function(amount, date = null, month = null, year = null) {
@@ -35,20 +35,22 @@ Bank.prototype.statement = function(){
 // quasi-private functions below
 
 Bank.prototype._transaction = function(amount, type, date){
+  // adds the transaction to the list of transactions
   const tObj = {
     "amount": amount,
     "type": type,
     "date": date,
-    "balance": this.balance.toFixed(2)
+    "balance": this.balance.toFixed(2)  // forces the balance to have 2 decimal places
   };
   this.transactions.push(tObj);
 };
 
 Bank.prototype._createDate = function(date, month, year){
+  // converts the date to a string. If a parameter is null, it's replaced by today's parameter
   var dateString = ""
-  dateString += date || this.date.getDate(); 
+  dateString += date || this.date.getDate(); // if date is null, use today's date
   dateString += "/";
-  var month = month || this.date.getMonth();
+  month = month || this.date.getMonth();
   if (month < 10){ dateString += 0 }
   dateString += month;
   dateString += "/";
