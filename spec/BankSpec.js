@@ -1,5 +1,5 @@
 describe('Bank', function() {
-  var Bank = require('../src/Bank');
+  // var Bank = require('../src/Bank');
   var account;
   var testDate; 
   beforeEach(function() {

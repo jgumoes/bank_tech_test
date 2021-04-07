@@ -58,4 +58,4 @@ Bank.prototype._createDate = function(date, month, year){
   return dateString;
 };
 
-module.exports = Bank;
+// module.exports = Bank;
