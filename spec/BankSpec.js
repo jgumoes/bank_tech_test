@@ -54,7 +54,7 @@ describe("Bank", () => {
 
   describe("._createDate", () => {
     it("should return a string of the date entered", () => {
-      expect(account._createDate(20, 4, 2069)).toEqual("20/04/2069");
+      expect(account._createDate(20, 12, 2069)).toEqual("20/12/2069");
     });
 
     it("should return todays date when passed nulls", () => {
