@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jgumoes/bank_tech_test#readme",
   "devDependencies": {
     "eslint": "^7.23.0",
+    "eslint-plugin-jasmine": "^4.1.2",
     "jasmine-core": "^3.7.1",
     "karma": "^6.3.2",
     "karma-chrome-launcher": "^3.1.0",
