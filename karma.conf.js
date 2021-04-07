@@ -23,11 +23,16 @@ module.exports = function(config) {
     // list of files / patterns to exclude
     exclude: [
     ],
+    
+        eslint: {
+          stopOnError: false,
+        },
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '**/*.js': ['eslint'],
       'src/Bank.js': ['coverage']
     },
 
