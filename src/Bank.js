@@ -23,8 +23,8 @@ Bank.prototype.statement = function(){
   }
   
   var transArray = [];
-  for(t of this.transactions){
-    transArray.push(t.date + " || " + fillAmount[t.type](t.amount) + " || " + t.balance)
+  for(var trans of this.transactions){
+    transArray.push(trans.date + " || " + fillAmount[trans.type](trans.amount) + " || " + trans.balance)
   }
   transArray.reverse();
 
